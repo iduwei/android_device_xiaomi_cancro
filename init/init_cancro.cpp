@@ -34,11 +34,14 @@
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
 
+#include <android-base/strings.h>
 
 #include "vendor_init.h"
 #include "property_service.h"
 #include "log.h"
 #include "util.h"
+
+using android::base::Trim;
 
 #define ISMATCH(a,b)    (!strncmp(a,b,PROP_VALUE_MAX))
 
@@ -82,9 +85,9 @@ void property_override(char const prop[], char const value[])
 
 void init_alarm_boot_properties()
 {
-    char const *alarm_file = "/proc/sys/kernel/boot_reason";
-    char buf[BUF_SIZE];
-    if(read_file2(alarm_file, buf, sizeof(buf))) {
+    char const *boot_reason_file = "/proc/sys/kernel/boot_reason";
+    std::string boot_reason;
+    if (read_file(boot_reason_file, &boot_reason) {
 
     /*
      * Setup ro.alarm_boot value to true when it is RTC triggered boot up
@@ -101,7 +104,7 @@ void init_alarm_boot_properties()
      * 7 -> CBLPWR_N pin toggled (for external power supply)
      * 8 -> KPDPWR_N pin toggled (power key pressed)
      */
-        if(buf[0] == '3')
+        if (Trim(boot_reason) == "3")
             property_set("ro.alarm_boot", "true");
         else
             property_set("ro.alarm_boot", "false");
