@@ -109,3 +109,6 @@ persist.fd.scron.timer=10000
 
 #Qcril ignore service domain camped status for 5 senconds.
 persist.radio.ignore_dom_time=5
+
+# USB
+persist.sys.usb.config=mtp,adb
