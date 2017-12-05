@@ -25,7 +25,8 @@ if [ $RAW_ID == 1974 ] || [ $RAW_ID == 1973 ] || [ $RAW_ID == 1972 ]; then
     rm -rf /system/lib/*nfc*
     rm -rf /system/etc/*nfc*
     rm -rf /system/etc/permissions/*nfc*
-    rm -rf /system/vendor/firmware/*bcm*
+    rm -rf /system/vendor/firmware/BCM20791B5_002.006.013.0011.0104_Customers_China_NCD_Unsigned_configdata.ncd
+    rm -rf /system/vendor/firmware/PreI2C_v470.ncd
     # Use Mi4 audio configs
     rm -f /system/etc/acdbdata/MTP/MTP_Speaker_cal.acdb
     mv /system/etc/acdbdata/MTP/MTP_Speaker_cal_4.acdb /system/etc/acdbdata/MTP/MTP_Speaker_cal.acdb
@@ -34,12 +35,17 @@ if [ $RAW_ID == 1974 ] || [ $RAW_ID == 1973 ] || [ $RAW_ID == 1972 ]; then
     # Mi4 libdirac config
     rm -f /system/vendor/etc/diracmobile.config
     mv /system/vendor/etc/diracmobile_4.config /system/vendor/etc/diracmobile.config
+    # Mi4 Sensor
+    rm -rf /system/etc/sensor_def_qcomdev.conf
+    mv -f /system/etc/sensor_def_qcomdev_v4.conf /system/etc/sensor_def_qcomdev.conf
 else
     # Remove Mi4 audio configs
     rm -rf /system/etc/acdbdata/MTP/MTP_Speaker_cal_4.acdb
     rm -f /system/etc/mixer_paths_4.xml
     # Remove Mi4 libdirac config
     rm -f /system/vendor/etc/diracmobile_4.config
+    # Remove Mi4 Sensor
+    rm -rf /system/etc/sensor_def_qcomdev_v4.conf
 fi
 
 if [ $RAW_ID == 1978 ] || [ $RAW_ID == 1974 ]; then
