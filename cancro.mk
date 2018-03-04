@@ -41,6 +41,10 @@ PRODUCT_PACKAGES += \
     libxml2 \
     Snap
 
+# Charger
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/root/chargeonlymode:root/sbin/chargeonlymode
+
 # DRM
 PRODUCT_PACKAGES += \
     libshims_wvm
@@ -50,10 +54,6 @@ PRODUCT_PACKAGES += \
     ebtables \
     ethertypes \
     libebtc
-    
-# Charger
-PRODUCT_PACKAGES += \
-    charger_res_images
 
 # Lights
 PRODUCT_PACKAGES += \

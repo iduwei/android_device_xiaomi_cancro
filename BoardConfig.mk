@@ -56,7 +56,7 @@ BOARD_KERNEL_PAGESIZE              := 2048
 BOARD_MKBOOTIMG_ARGS               := --ramdisk_offset 0x02000000 --tags_offset 0x01E00000
 TARGET_KERNEL_SOURCE               := kernel/xiaomi/cancro
 TARGET_KERNEL_ARCH                 := arm
-TARGET_KERNEL_CONFIG               := lineageos_cancro_defconfig
+TARGET_KERNEL_CONFIG               := cancro_user_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 BOARD_DTBTOOL_ARGS                 := -2
 
@@ -221,7 +221,6 @@ BOARD_USES_QC_TIME_SERVICES := true
 
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
-BOARD_CHARGER_DISABLE_INIT_BLANK := true
 
 # Enable dex-preoptimization to speed up first boot sequence
 ifeq ($(HOST_OS),linux)
