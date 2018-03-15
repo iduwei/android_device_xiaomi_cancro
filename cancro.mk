@@ -146,14 +146,14 @@ PRODUCT_COPY_FILES += \
 
 # Proprietery Firmware
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/xtwifi.conf:system/etc/xtwifi.conf \
-    $(LOCAL_PATH)/configs/calib.cfg:system/etc/calib.cfg \
-    $(LOCAL_PATH)/configs/modem/Diag.cfg:system/etc/modem/Diag.cfg
+    $(LOCAL_PATH)/configs/xtwifi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/xtwifi.conf \
+    $(LOCAL_PATH)/configs/calib.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/calib.cfg \
+    $(LOCAL_PATH)/configs/modem/Diag.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/modem/Diag.cfg
 
 # Audio
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy.conf \
-    $(LOCAL_PATH)/audio/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf \
+    $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
     $(LOCAL_PATH)/audio/listen_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/listen_platform_info.xml \
     $(LOCAL_PATH)/audio/diracmobile.config:$(TARGET_COPY_OUT_VENDOR)/etc/diracmobile.config \
     $(LOCAL_PATH)/audio/diracmobile_4.config:$(TARGET_COPY_OUT_VENDOR)/etc/diracmobile_4.config \
@@ -177,7 +177,7 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/bl_lut.txt:system/etc/bl_lut.txt
+    $(LOCAL_PATH)/configs/bl_lut.txt:$(TARGET_COPY_OUT_VENDOR)/etc/bl_lut.txt
 
 PRODUCT_PACKAGES += \
     bdaddr_xiaomi
